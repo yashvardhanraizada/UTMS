@@ -47,6 +47,6 @@ Steps to run the above repository on Localhost :
 
 5.Run the server on localhost. 
     
-     (venv)admin:~Blogs $ python3 manage.py runserver
+     (venv)admin:~UTMS $ python3 manage.py runserver
   
 For more detailed instructions visit djangoproject.com
