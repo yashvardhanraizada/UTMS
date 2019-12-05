@@ -27,7 +27,7 @@ Frontend : React, HTML5, CSS, Javascript, Bootstrap etc.
 
 Steps to run the above repository on Localhost :
 
-1. Create a Virtual Environment (venv) supporting Python 3.5.2 or above.
+1.Create a Virtual Environment (venv) supporting Python 3.5.2 or above.
 
      admin:~ $ python3 -m venv venv
 
