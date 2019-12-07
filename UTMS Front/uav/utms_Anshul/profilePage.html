@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/styleMain.css">
+	<link rel="stylesheet" type="text/css" href="css/profilePage.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>My Profile</title>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<div class="header">
+			<a href="index.php"><img src="assets/logo.png" alt="logo" class="logo" height="70px" width="auto">
+			</a>
+			
+			<div id="navItems">
+				
+    			<form action="/action_page.php" id="search-container">
+      				<input type="text" placeholder="Search.." name="search" style="padding: 1px;">
+      				<button type="submit"><i class="fa fa-search"></i></button>
+    			</form>		
+				<a href="logout.php?logout" id="logout">Logout</a>
+			</div>
+		</div>
+
+		<div class="main">
+			<img src="assets/img_avatar.png" id="profilePic" >
+			<div class="profileInfo">
+				<table style="width:100%">
+				  <tr>
+				    <th>Name</th>
+				    <td>Anshul</td>
+				    <td>Yadav</td>
+				  </tr>
+				  <tr>
+				    <th>E-Mail</th> 
+				    <td colspan="2">anshulyadav13@gmail.com</td>
+				  </tr>
+				  <tr>
+				    <th>Phone Number</th> 
+				    <td colspan="2">+91 7408 446 446</td>
+				  </tr>
+				  <tr>
+				    <th>Date of Birth</th> 
+				    <td colspan="2">05/02/1999</td>
+				  </tr>
+				  <tr>
+				    <th>Address</th> 
+				    <td colspan="2">H-110/5 IIT Kanpur</td>
+				  </tr>
+				</table>
+				<br>
+
+				<table>
+				  <tr>
+				    <th colspan="3" style="text-align: center">Details of registered UAVs</th>
+				  </tr>
+				  <tr>
+				    <th>Name</th>
+				    <td>DJI Mavic 2 Pro</td>
+				    <td>DJI Mavic Air</td>
+				  </tr>
+				  <tr>
+				    <th>Dimensions (LxWxH)</th>
+				    <td>Folded: 214×91×84 mm<br>Unfolded: 322×242×84 mm<br></td>
+				    <td>Folded: 168×83×49 mm<br>Unfolded: 168×184×64 mm</td>
+				  </tr>
+				  <tr>
+				    <th>Diagonal Distance</th>
+				    <td>354 mm</td>
+				    <td>213 mm</td>
+				  </tr>
+				  <tr>
+				    <th>Max. Ascent Speed</th>
+				    <td>5 m/s (S-mode)<br>4 m/s (P-mode)</td>
+				    <td>3 m/s (S - mode)<br>2 m/s (P - mode)<br>2 m/s (Wi-Fi mode)</td>
+				  </tr>
+				  <tr>
+				    <th>Max. Descent Speed</th>
+				    <td>3 m/s (S-mode)<br>3 m/s (P-mode)</td>
+				    <td>2 m/s (S - mode)<br>1.5 m/s (P - mode)<br>1 m/s (Wi-Fi mode)</td>
+				  </tr>
+				  <tr>
+				    <th>Takeoff Weight</th>
+				    <td>907 g</td>
+				    <td>430 g</td>
+				  </tr>
+				</table>
+			</div>
+		</div>
+
+		
+
+		<div class="footer">
+			Footer
+		</div>
+
+	</div>
+</body>
+
+</html>

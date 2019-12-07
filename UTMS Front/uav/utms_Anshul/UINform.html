@@ -1,0 +1,163 @@
+
+<html> 
+<body> 
+ <form name="RegForm" action="/action_page_post.php"
+ onsubmit="return FormValidation()" method="post">
+ <fieldset>
+    <legend>Personal information:</legend>
+	<div>
+    First name:<br>
+    <input type="text" name="firstname" placeholder="Enter your first name here" title="First name" size="35" required>
+	</div>
+	<br>
+	<div>
+    Middle name:<br>
+    <input type="text" name="middlename" placeholder="Enter your middle name here" title= "Middle name" size="35" required>
+	</div>
+	<br>
+   <div>
+	Last name:<br>
+    <input type="text" name="firstname" placeholder="Enter your last name here" title= "Last name" size="35" required>
+	</div>
+	<br>
+<div>
+ Email:<br>
+    <input type="text" name=" Email" placeholder="Enter your email here" title= " email" size="35" required>
+	</div>
+	<br>
+   <div>
+	Contact:<br>
+    <input type="number" name="contact number" placeholder="Enter contact number " title= "contact number" size="35" required>
+	</div>
+	<br>
+	<div>
+	Gender:<br>
+	<select name="Gender">
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+  <option value="Others">Others</option> 
+</select>
+</div>
+<div>
+<br>
+  Date of birth:<br>
+  <input type="date" name="bday" required>
+  </div>
+</fieldset>
+<br>
+<br>
+
+
+
+<fieldset>
+<legend>Professional information:</legend>
+<div>
+name of the organisation:<br>
+<input type="text" name="organisation name" placeholder="Enter your organisation name here" title= "Organisation name" size="35" required>
+</div>
+<br>
+<div>
+Your profession:<br>
+<input type="text" name="profession name" placeholder="Enter your profession here" title= "profession" size="35" required>
+</div>
+<br>
+</fieldset>
+<br>
+<br>
+
+
+
+<fieldset>
+<legend>Physical address:</legend>
+<div>
+Country:<br>
+<input type="text" name="country " value="India" readonly title="country" required>
+</div>
+<br>
+<div>
+state:<br>
+<input type="text" name="State " placeholder="Enter your State name here" title="State" size="35" required>
+</div>
+<br>
+<div>
+District:<br>
+<input type="text" name="District " placeholder="Enter your District name here" title="District" size="35" required>
+</div>
+<br>
+<div>
+Street Address:<br>
+<input name="Street" placeholder="Enter your Street address here" title="Street address" size="35" required>
+</div>
+<br>
+Zip code:<br>
+<input type="number" name="Zip code" placeholder="Enter your Zip code here" title="Zip code" size="35" required>
+</div>
+<br>
+</fieldset><br>
+<br>
+<br>
+
+<fieldset>
+<legend>Purpose to register:</legend>
+<div>
+<textarea name="message" rows="10" cols="30" placeholder="Enter the purpose of flying UAV" title="Purpose" required>
+</textarea>
+<div>
+</fieldset>
+<br>
+
+
+
+<fieldset>
+<legend>Documents upload:</legend>
+<div id= "add">
+<h4> Please upload your address proof here</h4>
+ <input type="file" name="file[]" multiple="multiple" id = "addprf" required>
+  <input type="submit">
+  </div>
+  <br>
+  <div id="purpose">
+  <h4> Please upload your statement of purpose of operation of UAV</h4>
+ <input type="file" name="purpose"  multiple="multiple" id = "purpose" required>
+  <input type="submit">
+  </div>
+<br>
+<div id="spec">
+<h4> Please upload specification sheet of the UAV</h4>
+ <input type="file" name="specification" multiple="multiple"  id = "specs" required>
+  <input type="submit">
+  </div>
+<br>
+<div id="char">
+  <h4> Please upload police clearance of character</h4>
+ <input type="file" name="character" multiple="multiple"  id = "char" required>
+  <input type="submit">
+  </div>
+<br>
+<div id="man">
+  <h4> Please upload Flight manual of UAV</h4>
+ <input type="file" name="Fligt manual" multiple="multiple" id = "flman" required>
+  <input type="submit">
+  </div>
+  <br>
+  <div id="maint">
+  <h4> Please upload maintenance guidelines of UAV</h4>
+ <input type="file" name="Maintenance guidelines" multiple="multiple" id = "maint" required>
+  <input type="submit">
+  </div>
+  <br>
+  <div id="perm">
+  <h4> Please upload document of permission for all frequencies used in drone operations from the Department of Telecommunications</h4>
+ <input type="file" name="permission" multiple="multiple" id = "perm" required>
+  <input type="submit">
+  </div>
+  <br>
+  </fieldset>
+  
+  <div>
+    <input type="submit" value="Submit">
+	<input type="reset">
+	</div>
+</form> 
+</body>
+</html>

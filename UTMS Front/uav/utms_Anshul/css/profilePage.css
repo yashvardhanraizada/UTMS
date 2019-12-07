@@ -1,0 +1,25 @@
+.main {
+	display: grid;
+}
+
+.wrapper{
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+#profilePic {
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border-radius: 50%;
+}
+
+.profileInfo {
+	display: grid;
+	border-top: solid;
+}
+
+table, th, td {
+  padding: 5px;
+  text-align: left;
+}

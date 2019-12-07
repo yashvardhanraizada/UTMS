@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test Form</title>
+</head>
+
+<body>
+	<h1 style="text-align: center; border-bottom-style: solid; padding-bottom: 20px;">Test Form</h1>
+	<form action="formSubmit.php" method="post" enctype="multipart/form-data">
+		<div class="form">
+			<label for="fname">Name: </label>
+			<input type="text" name="fname" placeholder="First Name">
+			<input type="text" name="mname" placeholder="Middle Name">
+			<input type="text" name="lname" placeholder="Last Name">
+			<br>
+			<label>Contact Details: </label>
+			<input type="text" name="email" placeholder="E-Mail Address" style="grid-column: 2/4">
+			<input type="text" name="pnum" placeholder="Your Phone Number">
+			<br>
+			<label>Gender: </label>
+			<select name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select>
+			<label>Date of Birth: </label>
+			<input type="date" name="dob">
+			<br>
+			<label>Professional Details: </label>
+			<input type="text" name="org" placeholder="Name of your organisation" style="grid-column: 2/4">
+			<input type="text" name="prof" placeholder="Your Profession">
+			<br>
+			<label style="grid-row: 5/9">Address: </label>
+			<input type="text" name="add1" placeholder="Address Line 1" style="grid-column: 2/5">
+			<input type="text" name="add2" placeholder="Address Line 2" style="grid-column: 2/5">
+			<input type="number" name="zip" placeholder="PIN Code">
+			<input type="text" name="city" placeholder="City">
+			<input type="text" name="state" placeholder="State">
+			<select name="country">
+				<option value="India">India</option>
+			</select>
+			<br>
+			<div style="grid-column: 3/5"></div>
+			<label>Purpose to Register</label>
+			<textarea style="grid-column: 2/5" name="purpose"></textarea>
+			
+			<label style="grid-column: 1/5; font-weight: bold;">Upload required documents as stated below:- </label><br>
+			<label style="grid-column: 1/4">Address Proof: </label>
+			<input type="file" name="addProof"><br>
+			<label style="grid-column: 1/4">Statement of Purpose of operation of UAV: </label>
+			<input type="file" name="sop" accept=".pdf"><br>
+			<label style="grid-column: 1/4">Specification Sheet of UAV: </label>
+			<input type="file" name="spec" accept=".pdf"><br>
+			<label style="grid-column: 1/4">Police Clearance of Character: </label>
+			<input type="file" name="pcc" accept=".pdf"><br>
+			<label style="grid-column: 1/4">Flight Manual of UAV: </label>
+			<input type="file" name="fmanual" accept=".pdf"><br>
+			<label style="grid-column: 1/4">Maintenance Guidelines of UAV: </label>
+			<input type="file" name="guide" accept=".pdf"><br>
+			<label style="grid-column: 1/4">Document of permission for all frequencies used in drone operations from the Department of Telecommunications: </label>
+			<input type="file" name="perm" accept=".pdf"><br>
+		</div>
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset" id="resetBtn" style="background-color: #FF0000; color: white; padding: 12px 20px; margin: 5px 10px; border: none; border-radius: 4px; cursor: pointer; float: right;">
+	</form>
+</body>
+
+</html>

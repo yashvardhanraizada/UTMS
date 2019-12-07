@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/styleMain.css">
+	<link rel="stylesheet" type="text/css" href="css/geoForm.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<title>Geo-fence Request Form</title>
+	<style type="text/css">
+		#resetBtn:hover {
+    		background-color: #8B0000;
+		}
+
+		#previewBtn:hover {
+    		background-color: #1034A5;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<div class="header">
+			<a href="index.php"><img src="assets/logo.png" alt="logo" class="logo" height="70px" width="auto">
+			</a>
+			
+			<div id="navItems">
+				
+    			<form action="/action_page.php" id="search-container">
+      				<input type="text" placeholder="Search.." name="search" style="padding: 1px;">
+      				<button type="submit"><i class="fa fa-search"></i></button>
+    			</form>		
+				<a href="logout.php?logout" id="logout">Logout</a>
+			</div>
+		</div>
+
+		<div class="leftPanel">
+			<nav>
+				<ul class="leftPanelUL">
+					<li id="profileLeftPanel">
+						<div style="border-bottom: 1px #576170 solid; padding-bottom: 20px">
+							<a href="#" style="float: left; margin-left: 20px;"><img src="assets/img_avatar.png" id="profilePic" ></a>
+							<a href="profilePage.html" style="line-height: 35px; margin-left: 25px"> My Profile <i class="fa fa-angle-double-right"></i></a>
+							<!-- <i class="fa fa-chevron-right icon" style="display: inline; border:1px black solid;"></i> -->
+						</div>
+					</li>
+					<li class="justText">Registration Module</li>
+					<li><a href="uin_form.html" target="_blank" class="leftPanelAnchor">UIN Form</a></li>
+					<li class="justText">GeoSpace Module</li>
+					<li><a href="map.html" class="leftPanelAnchor">Map</a></li>
+					<li><a href="#" class="leftPanelAnchor">Flight Calendar</a></li>
+					<li>
+						<a href="#" class="leftPanelAnchor" onclick="Expand(); return false;">Request Geo-fence area</a>
+						<div id="panel">
+							<a href="Geo_fence.html" class="leftPanelAnchor"><i class="fa fa-angle-right"></i> Give Latitude and Longitude</a><br>
+							<a href="#" class="leftPanelAnchor"><i class="fa fa-angle-right"></i> Draw on Map</a><br>
+							<a href="#" class="leftPanelAnchor"><i class="fa fa-angle-right"></i> Upload KML file</a>
+						</div>
+					</li>
+					<li><a href="#" class="leftPanelAnchor">Manage Geo-fence requests</a></li>
+					<li class="justText">Flight Module</li>
+					<li><a href="#" class="leftPanelAnchor">Request Flight Path</a></li>
+					<li class="justText">Traffic Module</li>
+					<li><a href="#" class="leftPanelAnchor">More</a></li>
+					<li><a href="#" class="leftPanelAnchor">Contact Us</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="main">
+			<h1 style="text-align: center; border-bottom-style: solid; padding-bottom: 20px; grid-column: 1/3;">Geo-fence Area Request Form</h1>
+			<form action="uin_validate.php" method="post">
+				<div class="form">
+					<label for="fname">Name: </label>
+					<input type="text" name="fname" placeholder="First Name">
+					<input type="text" name="mname" placeholder="Middle Name">
+					<input type="text" name="lname" placeholder="Last Name">
+					<label>Contact Details: </label>
+					<input type="text" name="email" placeholder="E-Mail Address" style="grid-column: 2/4">
+					<input type="text" name="pnum" placeholder="Your Phone Number">
+					<label style="grid-column: 1/3">Geo-fence Prohibiton Start Date and Time: </label>
+					<input type="date" name="gfstart">
+					<input type="time" name="gftstart">
+					<label style="grid-column: 1/3">Geo-fence Prohibition End Date and Time: </label>
+					<input type="date" name="gfend">
+					<input type="time" name="gftend">
+					<label>Geo-fence Purpose: </label>
+					<textarea style="grid-column: 2/5"></textarea>
+					<label>Geo-fence Shape: </label>
+					<select name="gfshape" id="gfshapeSelect">
+						<option value="circle">Circle</option>
+						<option value="polygon">Polygon</option>
+					</select>
+					<label class="circgf">Radius (in m): </label>
+					<input type="number" name="radius" class="circgf cval">
+					<label class="circgf">Latitude of Centre: </label>
+					<input type="number" name="clat" class="circgf cval">
+					<label class="circgf">Longitude of Centre: </label>
+					<input type="number" name="clong" class="circgf cval">
+					<label class="polygf">Number of sides: </label>
+					<input type="number" name="sides" class="polygf" id="polyside">
+
+					
+				</div>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Reset" id="resetBtn" style="background-color: #FF0000; color: white; padding: 12px 20px; margin: 5px 10px; border: none; border-radius: 4px; cursor: pointer; float: right;">
+				<input type="button" value="Preview" id="previewBtn" style="background-color: #0F52BA; color: white; padding: 12px 20px; margin: 5px 10px; border: none; border-radius: 4px; cursor: pointer; float: right;">
+			</form>
+			<div id="map"> 
+				<script>
+					function initMap() {
+  						var location = {lat: 26.5123, lng: 80.2329};
+  						/*var image = {
+  							url: "images/uav.png",
+  							scaledSize: new google.maps.Size(50,50),
+  							origin: new google.maps.Point(0,0),
+    						anchor: new google.maps.Point(0,0)
+  						}*/
+  						map = new google.maps.Map(
+    	  				document.getElementById('map'), {zoom: 14, center: location});
+  						/*var marker = new google.maps.Marker({
+  							position: location, 
+  							map: map, 
+  							icon: image
+  						});*/
+					}
+
+					$("#previewBtn").click(function(){
+						if($("#gfshapeSelect option:selected").val()=='circle'){
+							var x = document.getElementsByClassName('cval');
+							var rad = Number(x[0].value);
+							//alert('radius: '+ typeof x[0].value);
+							var clatlong = new google.maps.LatLng(x[1].value, x[2].value);
+
+							var circlegf = new google.maps.Circle({
+					            strokeColor: '#FF0000',
+					            strokeOpacity: 0.8,
+					            strokeWeight: 2,
+					            fillColor: '#FF0000',
+					            fillOpacity: 0.35,
+					            map: map,
+					            center: clatlong,
+					            radius: rad
+					        });
+
+					        map.setCenter(clatlong);
+
+							//alert('HI its a circle ;p');
+						}
+						else {
+							//alert('Button clicked');
+						    var x = document.getElementsByClassName('poly');
+						    //var n = x.length/2;
+						    var coords = [];
+
+						    for(var i = 0; i < x.length; i +=2) {
+						    	var latlong = new google.maps.LatLng(x[i].value, x[i+1].value)				    	
+						    	coords.push(latlong);
+						    }
+
+						    map.setCenter(coords[0]);
+
+						    var geoFence = new google.maps.Polygon({
+						          paths: coords,
+						          strokeColor: '#FF0000',
+						          strokeOpacity: 0.8,
+						          strokeWeight: 3,
+						          fillColor: '#FF0000',
+						          fillOpacity: 0.35
+						        });
+
+					        geoFence.setMap(map);
+						}
+					});						
+    			</script>
+    
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4fZ6ziLjv0ix2UskHFgkgmy7bf33tS-I&callback=initMap">
+			    </script>   
+			</div>
+		</div>
+
+		
+
+		<div class="footer">
+			Footer
+		</div>
+
+	</div>
+</body>
+
+<script>
+	function Expand() {
+		var x = document.getElementById('panel');
+    	if (x.style.display === "none") {
+        	x.style.display = "block";
+    	} else {
+        	x.style.display = "none";
+    	}
+	}
+</script>
+
+<script type="text/javascript">
+	$("#gfshapeSelect").change(function(){
+    	if (this.selectedIndex==0) {
+    		$(".polygf").hide();
+    		$(".circgf").show();
+		}
+		else {
+			//alert("Polygon Selected");
+			$(".circgf").hide();
+			$(".polygf").show();
+		}
+	});
+</script>
+
+<script type="text/javascript">
+	$("#polyside").change(function(){
+		var n = this.value;
+		$('.polyver').remove();
+		//alert('The entered number is: '+n);
+		for (var i = 1; i <= n; i++) {
+
+			var txt1 = '<label class="polygf polyver">Latitude of Vertex '+i+'</label><input type="number" name="ver'+i+'lat" class="polygf polyver poly">';
+			var txt2 = '<label class="polygf polyver">Longitude of Vertex '+i+'</label><input type="number" name="ver'+i+'long" class="polygf polyver poly">';
+			var txt3 = '<label class="polygf polyver">Previous Point: </label><input type="number" name="prev'+i+'pnt" class="polygf polyver">';
+			var txt4 = '<label class="polygf polyver">Next Point: </label><input type="number" name="next'+i+'pnt" class="polygf polyver">';
+			
+			$(".form").append(txt1,txt2,txt3,txt4);
+			//alert("loop done"+i);
+
+		}
+		$(".polygf").show();
+    	
+	});
+</script>
+
+<script type="text/javascript">
+	
+</script>
+
+</html>
